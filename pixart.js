@@ -9,7 +9,7 @@ $button.on('click', function(event) {
   event.preventDefault();
   $brush.css({"background-color":$colorField.val()});
   var brushColor = $colorField.val();
-  $body.on('click', ".square", function(event) {
+  $body.on('mouseover', ".square", function(event) {
     $(event.target).css({"background":brushColor});
   })
   $colorField.val('')
