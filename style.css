@@ -25,3 +25,7 @@ h1 {
 body {
   background-image: url('ps_neutral.png');
 }
+
+.hide {
+  display: none;
+}
