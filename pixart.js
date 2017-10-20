@@ -1,13 +1,12 @@
 var $brush = $(".brush");
+var $stamp = $(".stamp");
 var $setColor = $("#set-color");
+var $setStamp = $("#set-stamp");
 var $colorField = $("#color-field");
+var $movieFinder = $("#movie-finder");
 var $body = $("body");
 var $squareDiv = $(".square");
-var $stamp = $(".stamp");
-var $brushBtn = $(".brush-btn");
-var $stampBtn = $(".stamp-btn");
-var $brushControls = $(".brush-controls");
-var $stampControls = $(".stamp-controls");
+
 
 $setColor.on('click', function(event) {
   event.preventDefault();
@@ -17,6 +16,16 @@ $setColor.on('click', function(event) {
     $(event.target).css({"background":brushColor});
   })
   $colorField.val('')
+});
+
+$setStamp.on('click', function(event) {
+  event.preventDefault();
+  $stamp.css({"background-color":$movieFinder.val()});
+  var stampColor = $movieFinder.val();
+  $body.on('mouseover', ".square", function(event) {
+    $(event.target).css({"background":stampColor});
+  })
+  $movieFinder.val('')
 
 });
 
@@ -24,13 +33,3 @@ for (var i = 0; i <= 1000; i++) {
   var $square = $("<div>",{ "class": "square"});
   $($body).append($square);
 };
-
-$brushBtn.on('click', function() {
- $stampControls.classList.add("hide");
- $brushControls.classList.remove("hide");
-});
-
-$stampBtn.on('click', function() {
- $stampControls.classList.remove("hide");
- $brushControls.classList.add("hide");
-})

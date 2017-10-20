@@ -1,7 +1,8 @@
-.brush {
+.brush, .stamp {
   width: 100px;
   height: 100px;
   background: #1B4370;
+  display: inline-block;
   margin: 15px auto;
 }
 
@@ -24,8 +25,4 @@ h1 {
 
 body {
   background-image: url('ps_neutral.png');
-}
-
-.hide {
-  display: none;
 }
