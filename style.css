@@ -1,7 +1,7 @@
 .brush, .stamp {
   width: 100px;
   height: 100px;
-  background: #1B4370;
+  background-color: #1B4370;
   display: inline-block;
   margin: 15px auto;
 }

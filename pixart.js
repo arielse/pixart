@@ -20,12 +20,22 @@ $setColor.on('click', function(event) {
 
 $setStamp.on('click', function(event) {
   event.preventDefault();
-  $stamp.css({"background-color":$movieFinder.val()});
-  var stampColor = $movieFinder.val();
-  $body.on('mouseover', ".square", function(event) {
-    $(event.target).css({"background":stampColor});
-  })
-  $movieFinder.val('')
+  var getMovie = {
+    method: 'get',
+    url: 'http://www.omdbapi.com/',
+    data: { apikey: '2f6435d9', t: $movieFinder.val()}
+  }
+
+  var addPoster = function(result) {
+    $stamp.css({"background-image": result.Poster });
+    var stampImg = "url(" + result.Poster + ")";
+    $body.on('mouseover', ".square", function(event) {
+      $(event.target).css({"background-image": stampImg});
+
+    })
+    $movieFinder.val('')
+  }
+  $.ajax(getMovie).done(addPoster);
 
 });
 
